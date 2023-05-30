@@ -1,22 +1,30 @@
-const webpack = require('webpack');
+
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const mode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './client/index.js',
   mode: mode,
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.resolve(__dirname, '/dist'),
     filename: 'bundle.js',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 
   plugins: [
     new HTMLWebpackPlugin({
       template: 'client/index.html',
     }),
+    new CleanWebpackPlugin(),
   ],
+  stats: { 
+    children: true 
+  },
 
   module: {
     rules: [

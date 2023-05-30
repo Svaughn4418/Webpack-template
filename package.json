@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "nodemon server/server.js & NODE_ENV=production webpack",
+    "build": "NODE_ENV=production webpack & nodemon server/server.js",
     "dev": "NODE_ENV=development webpack-dev-server --open --hot"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.22.2",
     "@babel/preset-react": "^7.22.3",
     "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
     "html-webpack-plugin": "^5.5.1",
     "nodemon": "^2.0.22",
     "webpack": "^5.84.1",
